@@ -1,17 +1,25 @@
 new Vue({
   el: '#lista',
-  create: function(){
-    this.getKeeps;
-  }
-    data:{
-    keeps:[] //todas las teareas
+  data:{
+    keeps:[]
   },
-  methods:{
-    getKeeps: function(){
-      var urlKeeps = 'tasks';
+  created: function() {
+		this.getKeeps();
+    console.log(this.keeps);
+	},
+
+
+	methods: {
+		getKeeps: function() {
+      var urlKeeps="tasks";
+      console.log(urlKeeps);
       axios.get(urlKeeps).then(response=>{
-        this.keeps = response.data
+
+        this.keeps=response.data
+
       });
+
+      console.log(this.keeps);
     }
   }
 });
